@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary ke-2 Adna Fika Agestifanka & Lyra Arecha — 8 Juli 2025</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+        <button id="darkModeToggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="color-picker">
+            <div class="color-option" data-color="pink" style="background: #ff69b4;"></div>
+            <div class="color-option" data-color="purple" style="background: #9b59b6;"></div>
+            <div class="color-option" data-color="blue" style="background: #3498db;"></div>
+            <div class="color-option" data-color="red" style="background: #e74c3c;"></div>
+        </div>
+    </div>
+    
+    <!-- Bokeh Background -->
+    <div class="bokeh-container">
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+    </div>
+    
+    <!-- Confetti Hearts -->
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <!-- Header Section -->
+    <header class="hero-section parallax-section" data-speed="0.5">
+        <div class="container">
+            <h1 class="main-title">
+                <span class="typing-text" id="typingText"></span>
+                <span class="cursor">|</span>
+            </h1>
+            <div class="subtitle">
+                <p>Merayakan 2 Tahun Perjalanan Cinta</p>
+                <div class="heart-divider">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2>Countdown ke Anniversary ke-2</h2>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="time-unit">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Hari</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Jam</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Menit</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Detik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section class="stats-section parallax-section" data-speed="0.3">
+        <div class="container">
+            <h2>Statistik Perjalanan Cinta Kita</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="730">0</div>
+                    <div class="stat-label">Hari Bersama</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="17520">0</div>
+                    <div class="stat-label">Jam Bersama</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Kota Dijelajahi</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1000000">0</div>
+                    <div class="stat-label">Kata "Sayang"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Galeri Kenangan Kita</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photos will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn" id="closeLightbox">&times;</span>
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-nav">
+                <button class="nav-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Music Section -->
+    <section class="music-section">
+        <div class="container">
+            <h2>Playlist Lagu Kita</h2>
+            <div class="music-player">
+                <div class="player-controls">
+                    <button id="playPauseBtn" class="control-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="progress-container">
+                        <div class="progress-bar-music">
+                            <div class="progress" id="musicProgress"></div>
+                        </div>
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        </div>
+                    </div>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up"></i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="playlist">
+                    <select id="songSelect">
+                        <option value="0">Threesixty - Sampai Nanti</option>
+                        <option value="1">Nadhif Basalamah - Penjaga Hati</option>
+                        <option value="2">Denny Caknan - Cundamani</option>
+                    </select>
+                </div>
+                <div class="lyrics-display" id="lyricsDisplay">
+                    <p>Pilih lagu untuk melihat lirik...</p>
+                </div>
+            </div>
+            <audio id="audioPlayer" preload="metadata"></audio>
+        </div>
+    </section>
+    
+    <!-- Love Letter Section -->
+    <section class="love-letter-section">
+        <div class="container">
+            <h2>Surat Cinta Untuk Lyra</h2>
+            <div class="envelope-container">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <i class="fas fa-heart envelope-heart"></i>
+                        <p>Klik untuk membuka surat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Love Letter Modal -->
+    <div class="modal" id="letterModal">
+        <div class="modal-content letter-content">
+            <span class="close-modal" id="closeLetterModal">&times;</span>
+            <div class="letter-paper">
+                <h3>Untuk Cintaku, Lyra Arecha ❤️</h3>
+                <div class="letter-text">
+                    <p>Sayangku, Lyra Arecha,</p>
+                    <p>Hari ini genap sudah dua tahun aku berjalan di sisimu menapaki waktu yang kita ukir bersama, menuliskan kisah indah yang tak pernah gagal membuatku jatuh cinta lagi dan lagi.</p>
+                    <p>Dua tahun ini bukan hanya sekadar hitungan hari, tapi saksi betapa kuatnya hati kita bertaut, saling menggenggam di saat senang maupun susah. Kita pernah tertawa sampai lupa waktu, menangis dalam pelukan, saling menguatkan ketika ragu datang.</p>
+                    <p>Aku bersyukur, Lyra. Bersyukur dipertemukan denganmu, yang selalu sabar menemaniku tumbuh. Kamu adalah rumah untukku pulang, pelabuhan untukku berlabuh, dan semesta penuh kehangatan yang selalu kurindukan.</p>
+                    <p>Semoga di tahun-tahun berikutnya, cinta ini tidak akan pernah surut. Aku ingin kita menua bersama, bercerita di bawah langit senja, memeluk semua mimpi yang pernah kita bisikkan berdua.</p>
+                    <p>Terima kasih sudah mencintaiku dengan caramu yang paling tulus. Terima kasih sudah mau tetap bertahan bersamaku, dengan segala kurangku.</p>
+                    <p>Selamat anniversary yang kedua, cintaku. Mari kita terus menulis cerita, satu babak indah ke babak indah berikutnya hanya ada kamu dan aku, Adna & Lyra, selamanya.</p>
+                    <p>Aku mencintaimu, sekarang, besok, dan selamanya. ❤️</p>
+                    <p class="signature">Dengan cinta,<br>Adna Fika Agestifanka</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2>Quiz Tentang Kita</h2>
+            <div class="quiz-container" id="quizContainer">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2>Timeline Kenangan Kita</h2>
+            <div class="timeline" id="timeline">
+                <!-- Timeline items will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Guestbook Section -->
+    <section class="guestbook-section">
+        <div class="container">
+            <h2>Wall of Love</h2>
+            <div class="guestbook-form">
+                <input type="text" id="guestName" placeholder="Nama kamu...">
+                <textarea id="guestMessage" placeholder="Tulis pesan untuk Adna & Lyra..."></textarea>
+                <button id="submitGuest">Kirim Pesan</button>
+            </div>
+            <div class="guestbook-messages" id="guestbookMessages">
+                <!-- Messages will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lyra's Reply Section -->
+    <section class="reply-section">
+        <div class="container">
+            <h2>Balasan dari Lyra</h2>
+            <div class="reply-form">
+                <textarea id="lyraReply" placeholder="Lyra, tulis balasanmu untuk Adna..."></textarea>
+                <button id="submitReply">Kirim Balasan</button>
+            </div>
+            <div class="reply-display" id="replyDisplay">
+                <p class="no-reply">Belum ada balasan dari Lyra...</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Fitur Spesial</h2>
+            <div class="features-grid">
+                <div class="feature-card" onclick="openVoiceMessage()">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Pesan Suara</h3>
+                    <p>Dengar pesan suara dari Adna</p>
+                </div>
+                <div class="feature-card" onclick="showLoveReminder()">
+                    <i class="fas fa-heart"></i>
+                    <h3>Love Reminder</h3>
+                    <p>Pengingat cinta random</p>
+                </div>
+                <div class="feature-card" onclick="generatePoem()">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>AI Poem</h3>
+                    <p>Puisi otomatis untuk Lyra</p>
+                </div>
+                <div class="feature-card" onclick="generateChallenge()">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Love Challenge</h3>
+                    <p>Tantangan lucu harian</p>
+                </div>
+                <div class="feature-card" onclick="showMemoryMap()">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Peta Kenangan</h3>
+                    <p>Lokasi kenangan kita</p>
+                </div>
+                <div class="feature-card" onclick="openTimeCapsule()">
+                    <i class="fas fa-clock"></i>
+                    <h3>Time Capsule</h3>
+                    <p>Pesan untuk masa depan</p>
+                </div>
+                <div class="feature-card" onclick="createGreetingCard()">
+                    <i class="fas fa-gift"></i>
+                    <h3>Greeting Card</h3>
+                    <p>Buat kartu ucapan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Anniversary Website - Dibuat dengan ❤️ untuk Adna & Lyra</p>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <!-- Voice Message Modal -->
+    <div class="modal" id="voiceModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('voiceModal')">&times;</span>
+            <h3>Pesan Suara dari Adna</h3>
+            <div class="voice-player">
+                <button id="playVoiceBtn" class="voice-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <p>Klik untuk memutar pesan suara</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Love Reminder Modal -->
+    <div class="modal" id="reminderModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('reminderModal')">&times;</span>
+            <h3>💕 Love Reminder 💕</h3>
+            <p id="reminderText"></p>
+        </div>
+    </div>
+    
+    <!-- Poem Modal -->
+    <div class="modal" id="poemModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('poemModal')">&times;</span>
+            <h3>Puisi untuk Lyra</h3>
+            <div id="poemText"></div>
+        </div>
+    </div>
+    
+    <!-- Challenge Modal -->
+    <div class="modal" id="challengeModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('challengeModal')">&times;</span>
+            <h3>Love Challenge Hari Ini</h3>
+            <p id="challengeText"></p>
+        </div>
+    </div>
+    
+    <!-- Memory Map Modal -->
+    <div class="modal" id="mapModal">
+        <div class="modal-content map-modal">
+            <span class="close-modal" onclick="closeModal('mapModal')">&times;</span>
+            <h3>Peta Lokasi Kenangan</h3>
+            <div id="memoryMap"></div>
+        </div>
+    </div>
+    
+    <!-- Time Capsule Modal -->
+    <div class="modal" id="timeCapsuleModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('timeCapsuleModal')">&times;</span>
+            <h3>Time Capsule</h3>
+            <div class="time-capsule-form">
+                <textarea id="capsuleMessage" placeholder="Tulis pesan untuk masa depan..."></textarea>
+                <input type="date" id="capsuleDate" min="2025-07-09">
+                <button onclick="saveTimeCapsule()">Simpan Time Capsule</button>
+            </div>
+            <div id="capsuleDisplay"></div>
+        </div>
+    </div>
+    
+    <!-- Greeting Card Modal -->
+    <div class="modal" id="cardModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('cardModal')">&times;</span>
+            <h3>Buat Kartu Ucapan</h3>
+            <div class="card-maker">
+                <div class="card-preview" id="cardPreview">
+                    <h4 id="cardTitle">Judul Kartu</h4>
+                    <p id="cardMessage">Pesan kartu...</p>
+                    <p id="cardFrom">Dari: Adna</p>
+                </div>
+                <div class="card-form">
+                    <input type="text" id="cardTitleInput" placeholder="Judul kartu...">
+                    <textarea id="cardMessageInput" placeholder="Pesan kartu..."></textarea>
+                    <input type="text" id="cardFromInput" placeholder="Dari..." value="Adna">
+                    <button onclick="updateCard()">Update Kartu</button>
+                    <button onclick="downloadCard()">Download Kartu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
